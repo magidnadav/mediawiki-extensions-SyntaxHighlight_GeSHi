@@ -48,9 +48,7 @@ class UpdateLexerList extends Maintenance {
 		$result = Shell::command(
 			SyntaxHighlight::getPygmentizePath(),
 			'-L', 'lexer'
-		)
-			->restrict( Shell::RESTRICT_DEFAULT | Shell::NO_NETWORK )
-			->execute();
+		)->execute();
 
 		if ( $result->getExitCode() != 0 ) {
 			throw new \RuntimeException( $result->getStderr() );
